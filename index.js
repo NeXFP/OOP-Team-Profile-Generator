@@ -49,27 +49,27 @@ const managerQuestions = [
 const engineerQuestions = [
     {
         type:"input",
-        name:"name",
+        name:"engineerName",
         message:"What is the engineer's name?"
     },
     {
         type:"input",
-        name:"id",
+        name:"engineerId",
         message:"What is the engineer's ID?"
     },
     {
         type:"input",
-        name:"number",
+        name:"engineerNumber",
         message:"What is the engineer's office number?"
     },
     {
         type:"input",
-        name:"email",
+        name:"engineerEmail",
         message:"Which email does the engineer use?"
     },
     {
         type:"input",
-        name:"github",
+        name:"engineerGithub",
         message:"What is the Github username that the engineer would like to use?"
     },
     {
@@ -140,5 +140,39 @@ function nextEmployee() {
             console.log("Generating your team currently!")
             makeTeam();
     }
+    })
+}
+
+function managerPrompt() {
+    inquirer.prompt(managerQuestions).then((response) => {
+
+        let name = response.managerName;
+        let id = response.managerID;
+        let email = response.managerEmail;
+        let office = response.office;
+        let github = response.github;
+
+        const manager = new Manager(name, id, email, office, github);
+        teamArray.push(manager);
+        console.log(teamArray);
+
+        next();
+    })
+}
+
+function engineerPrompt(){
+    inquirer.prompt(engineerQuestions).then((response) => {
+        let name = response.engineerName;
+        let id = response.engineerId;
+        let email = response.engineerEmail;
+        let office = response.engineerNumber;
+        let github = response.engineerGithub;
+
+        const engineer = new Engineer (name, id, email, office, github);
+        teamArray.push(engineer);
+        console.log(teamArray);
+        
+        //This calls back to the function to prompt users to select the next employee type they would like to add!
+        next();
     })
 }
