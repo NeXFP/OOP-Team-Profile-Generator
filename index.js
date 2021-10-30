@@ -171,8 +171,8 @@ function engineerPrompt(){
         const engineer = new Engineer (name, id, email, office, github);
         teamArray.push(engineer);
         console.log(teamArray);
-        
+
         //This calls back to the function to prompt users to select the next employee type they would like to add!
-        next();
+        nextEmployee();
     })
 }
