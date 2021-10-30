@@ -1,10 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require('fs');
-const Employee = require("./lib/Employee");
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
-const generateIndexHTML = require("./src/htmlTemplate");
+const teamComposition = require("./src/pagetemplate");
 
 const teamArray = [];
 
@@ -35,12 +31,6 @@ const managerQuestions = [
         type:"input",
         name:"github",
         message:"What is the Github username that the manager would like to use?"
-    },
-    {
-        type:"list",
-        name:"engineerAdd",
-        choices:["Yes", "No"],
-        message: "Would you like to add an engineer?"
     }
 ];
 
@@ -71,12 +61,6 @@ const engineerQuestions = [
         type:"input",
         name:"engineerGithub",
         message:"What is the Github username that the engineer would like to use?"
-    },
-    {
-        type:"list",
-        name:"internAdd",
-        choices:["Yes", "No"],
-        message: "Would you like to add an intern?"
     }
 ];
 
@@ -85,27 +69,27 @@ const engineerQuestions = [
 const internQuestions = [
     {
         type:"input",
-        name:"name",
+        name:"internName",
         message:"What is the intern's name?"
     },
     {
         type:"input",
-        name:"id",
+        name:"internId",
         message:"What is the intern's ID?"
     },
     {
         type:"input",
-        name:"number",
+        name:"internNumber",
         message:"What is the interns's office number?"
     },
     {
         type:"input",
-        name:"email",
+        name:"inturnEmail",
         message:"Which email does the intern use?"
     },
     {
         type:"input",
-        name:"github",
+        name:"internGithub",
         message:"What is the Github username that the intern would like to use?"
     }
 ];
@@ -138,11 +122,11 @@ function nextEmployee() {
             internPrompt();
         case "Done":
             console.log("Generating your team currently!")
-            makeTeam();
+            teamComposition();
     }
     })
 }
-
+//Function to prompt a manager
 function managerPrompt() {
     inquirer.prompt(managerQuestions).then((response) => {
 
@@ -152,14 +136,16 @@ function managerPrompt() {
         let office = response.office;
         let github = response.github;
 
+        //Creates object for manager
         const manager = new Manager(name, id, email, office, github);
         teamArray.push(manager);
         console.log(teamArray);
 
-        next();
+        nextEmployee();
     })
 }
 
+//Function to prompt an Engineer
 function engineerPrompt(){
     inquirer.prompt(engineerQuestions).then((response) => {
         let name = response.engineerName;
@@ -168,6 +154,7 @@ function engineerPrompt(){
         let office = response.engineerNumber;
         let github = response.engineerGithub;
 
+        //Creates object for engineer
         const engineer = new Engineer (name, id, email, office, github);
         teamArray.push(engineer);
         console.log(teamArray);
@@ -176,3 +163,32 @@ function engineerPrompt(){
         nextEmployee();
     })
 }
+
+//Function to prompt an Intern
+function internPrompt(){
+    inquirer.prompt(engineerQuestions).then((response) => {
+        let name = response.internName;
+        let id = response.internId;
+        let email = response.internEmail;
+        let office = response.internNumber;
+        let github = response.internGithub;
+
+        //Creates object for intern
+        const intern = new Intern (name, id, email, office, github);
+        teamArray.push(intern);
+        console.log(teamArray);
+
+        //This calls back to the function to prompt users to select the next employee type they would like to add!
+        nextEmployee();
+    })
+}
+
+function teamComposition() {
+    fs.writeFile(outputPath, render(teamArray), function(err){
+        if (err){
+            return console.log(error)
+        }
+    })
+}
+
+init();
