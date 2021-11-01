@@ -59,38 +59,40 @@ const internGeneration = function (intern) {
 }
 
 generateIndex = (data) => {
-    pageArray = [];
+
+    //let pageArray = [];
+
+    let pageTemplate = '';
 
     for(let i = 0; i< data.length; i++){
+        const employee = data[i];
         const role = employee.getRole();
-    }
+    
 
     if (role === "Manager") {
         const managerCard = managerGeneration(employee);
 
-        pageArray.push(managerCard);
+        pageTemplate += managerCard;
     }
 
     if (role === "Engineer") {
         const engineerCard = engineerGeneration(employee);
 
-        pageArray.push(engineerCard);
+        pageTemplate += engineerCard;
     }
 
     if (role === "Intern") {
         const internCard = internGeneration(employee);
 
-        pageArray.push(internCard);
+        pageTemplate += internCard;
+    }
     }
 
+    return pageTemplate;
 }
 
-const employeeCards = pageArray.join('')
 
-const generateTeam = teamComposition(employeeCards);
-return generateTeam;
-
-function teamComposition(employeeCards) {
+function generateTeamPage(employeeCards) {
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -98,9 +100,11 @@ function teamComposition(employeeCards) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>My Team</title>
 </head>
 
@@ -121,5 +125,7 @@ function teamComposition(employeeCards) {
 </html>
 `;
 }
+
+generateTeamPage();
 
 module.exports = generateIndex;
