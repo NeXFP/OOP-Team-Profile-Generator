@@ -19,7 +19,7 @@ const managerQuestions = [
     },
     {
         type:"input",
-        name:"number",
+        name:"officeNumber",
         message:"What is the manager's office number?"
     },
     {
@@ -39,27 +39,27 @@ const managerQuestions = [
 const engineerQuestions = [
     {
         type:"input",
-        name:"engineerName",
+        name:"name",
         message:"What is the engineer's name?"
     },
     {
         type:"input",
-        name:"engineerId",
+        name:"id",
         message:"What is the engineer's ID?"
     },
     {
         type:"input",
-        name:"engineerNumber",
+        name:"officeNumber",
         message:"What is the engineer's office number?"
     },
     {
         type:"input",
-        name:"engineerEmail",
+        name:"email",
         message:"Which email does the engineer use?"
     },
     {
         type:"input",
-        name:"engineerGithub",
+        name:"github",
         message:"What is the Github username that the engineer would like to use?"
     }
 ];
@@ -69,27 +69,27 @@ const engineerQuestions = [
 const internQuestions = [
     {
         type:"input",
-        name:"internName",
+        name:"name",
         message:"What is the intern's name?"
     },
     {
         type:"input",
-        name:"internId",
+        name:"id",
         message:"What is the intern's ID?"
     },
     {
         type:"input",
-        name:"internNumber",
+        name:"officeNumber",
         message:"What is the interns's office number?"
     },
     {
         type:"input",
-        name:"inturnEmail",
+        name:"email",
         message:"Which email does the intern use?"
     },
     {
         type:"input",
-        name:"internGithub",
+        name:"github",
         message:"What is the Github username that the intern would like to use?"
     }
 ];
@@ -130,14 +130,14 @@ function nextEmployee() {
 function managerPrompt() {
     inquirer.prompt(managerQuestions).then((response) => {
 
-        let name = response.managerName;
-        let id = response.managerID;
-        let email = response.managerEmail;
-        let office = response.office;
+        let name = response.name;
+        let id = response.id;
+        let email = response.email;
+        let office = response.officeNumber;
         let github = response.github;
 
         //Creates object for manager
-        const manager = new Manager(name, id, email, office, github);
+        const manager = new manager(name, id, email, office, github);
         teamArray.push(manager);
         console.log(teamArray);
 
@@ -148,14 +148,14 @@ function managerPrompt() {
 //Function to prompt an Engineer
 function engineerPrompt(){
     inquirer.prompt(engineerQuestions).then((response) => {
-        let name = response.engineerName;
-        let id = response.engineerId;
-        let email = response.engineerEmail;
-        let office = response.engineerNumber;
-        let github = response.engineerGithub;
+        let name = response.name;
+        let id = response.id;
+        let email = response.email;
+        let office = response.officeNumber;
+        let github = response.github;
 
         //Creates object for engineer
-        const engineer = new Engineer (name, id, email, office, github);
+        const engineer = new engineer (name, id, email, office, github);
         teamArray.push(engineer);
         console.log(teamArray);
 
@@ -167,14 +167,14 @@ function engineerPrompt(){
 //Function to prompt an Intern
 function internPrompt(){
     inquirer.prompt(engineerQuestions).then((response) => {
-        let name = response.internName;
-        let id = response.internId;
-        let email = response.internEmail;
-        let office = response.internNumber;
-        let github = response.internGithub;
+        let name = response.name;
+        let id = response.id;
+        let email = response.email;
+        let office = response.officeNumber;
+        let github = response.github;
 
         //Creates object for intern
-        const intern = new Intern (name, id, email, office, github);
+        const intern = new intern (name, id, email, office, github);
         teamArray.push(intern);
         console.log(teamArray);
 
@@ -186,7 +186,7 @@ function internPrompt(){
 function teamComposition() {
     fs.writeFile(outputPath, render(teamArray), function(err){
         if (err){
-            return console.log(error)
+            return console.log(err)
         }
     })
 }
