@@ -58,7 +58,7 @@ const internGeneration = function (intern) {
     `;
 }
 
-teamComposition = (data) => {
+generateIndex = (data) => {
     pageArray = [];
 
     for(let i = 0; i< data.length; i++){
@@ -85,12 +85,12 @@ teamComposition = (data) => {
 
 }
 
-const employeeCards = pageArray.join("")
+const employeeCards = pageArray.join('')
 
-const generateTeam = generateteamPage(employeeCards);
+const generateTeam = teamComposition(employeeCards);
 return generateTeam;
 
-function generateteamPage(employeeCards) {
+function teamComposition(employeeCards) {
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -122,4 +122,4 @@ function generateteamPage(employeeCards) {
 `;
 }
 
-export default teamComposition;
+module.exports = generateIndex;
