@@ -25,7 +25,7 @@ const engineerGeneration = function (engineer) {
         <div class="card text-white bg-info mb-3" style="width: 20rem;">
             <div class="card-header bg-secondary">
                 <h3>${engineer.name}</h3>
-                <h4>Manager</h4><i class="material-icons">laptop_mac</i>
+                <h4>Engineer</h4><i class="material-icons">laptop_mac</i>
             </div>
             <div class="card-body">
                 <p class="card-text-right">ID: ${engineer.id}</p>
@@ -45,7 +45,7 @@ const internGeneration = function (intern) {
         <div class="card text-white bg-info mb-3" style="width: 20rem;">
             <div class="card-header bg-secondary">
                 <h3>${intern.name}</h3>
-                <h4>Manager</h4><i class="material-icons">assignment_ind</i>
+                <h4>Intern</h4><i class="material-icons">assignment_ind</i>
             </div>
             <div class="card-body">
                 <p class="card-text-right">ID: ${intern.id}</p>
@@ -57,6 +57,8 @@ const internGeneration = function (intern) {
     </div>
     `;
 }
+
+
 
 generateIndex = (data) => {
 
@@ -91,8 +93,8 @@ generateIndex = (data) => {
     return pageTemplate;
 }
 
-
-function generateTeamPage(employeeCards) {
+const generateTeamPage = function (employeeCards) {
+    console.log('We are in generateTeamPage')
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -127,5 +129,6 @@ function generateTeamPage(employeeCards) {
 }
 
 generateTeamPage();
+
 
 module.exports = generateIndex;
