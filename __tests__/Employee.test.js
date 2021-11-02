@@ -10,28 +10,11 @@ test('creates an employee object', () => {
 });
 
 
-test('Pulls employee name', () => {
+test('Pulls employee information', () => {
     const employee = new Employee('Gio', 101, 'gio.test@gmail.com');
 
     expect(employee.getName()).toEqual(expect.any(String));
-});
-
-
-test('Pulls employee ID', () => {
-    const employee = new Employee('Gio', 101, 'gio.test@gmail.com');
-
     expect(employee.getId()).toEqual(expect.any(Number));
-});
-
-
-test('Pulls employee email', () => {
-    const employee = new Employee('Gio', 101, 'gio.test@gmail.com');
-
     expect(employee.getEmail()).toEqual(expect.stringContaining(employee.email.toString()));
-});
-
-test('Pulls role of employees', () => {
-    const employee = new Employee('Gio', 101, 'gio.test@gmail.com');
-
     expect(employee.getRole()).toEqual("Employee");
-}); 
+});

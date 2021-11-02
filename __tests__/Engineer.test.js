@@ -8,15 +8,9 @@ test('Engineer object', () => {
 });
 
 
-test('Pulls engineer github', () => {
+test('Pulls engineer information', () => {
     const engineer = new Engineer('Gio', 101, 'gio.test@gmail.com', 'gioTester123');
 
     expect(engineer.getGithub()).toEqual(expect.stringContaining(engineer.github.toString()));
-});
-
-
-test('Pulls role of employee', () => {
-    const engineer = new Engineer('Gio', 101, 'gio.test@gmail.com', 'gioTester123');
-
     expect(engineer.getRole()).toEqual("Engineer");
 });

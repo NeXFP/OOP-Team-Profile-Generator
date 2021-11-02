@@ -9,14 +9,9 @@ test('Intern object', () => {
 });
 
 
-test('Pulls employee school', () => {
+test('Pulls intern information', () => {
     const intern = new Intern('Gio', 101, 'gio.test@gmail.com', 'Rutgers');
     
     expect(intern.getSchool()).toEqual(expect.stringContaining(intern.school.toString()));
-});
-
-test('Pulls role of employee', () => {
-    const intern = new Intern('Gio', 101, 'gio.test@gmail.com', 'Rutgers');
-
     expect(intern.getRole()).toEqual("Intern");
-}); 
+});
