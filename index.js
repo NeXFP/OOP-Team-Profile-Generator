@@ -49,9 +49,7 @@ const managerQuestions = () => {
 
 const addEmployee = () => {
     console.log(`
-    =================
-    Adding employees to the team
-    =================
+    Currently Adding Employees to the team!!
     `);
 
     return inquirer.prompt ([
