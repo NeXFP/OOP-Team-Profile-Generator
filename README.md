@@ -25,7 +25,7 @@
 
   ## Links
   Below is a link to the video showing how the project works and the results.
-  ![Testing Video](https://streamable.com/kphaum)
+  1)https://streamable.com/kphaum
 
   Below is the repo that the project was worked on.
   1)https://github.com/NeXFP/OOP-Team-Profile-Generator
