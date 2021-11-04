@@ -23,6 +23,16 @@
   Below is an example of the actual team profile after all questions have been answered with proper information. 
 ![image](https://user-images.githubusercontent.com/88305762/140416812-cedfd5ef-afe4-41f6-975e-c7c3e141d3a9.png)
 
+  ## Links
+  Below is a video showing how the project works and the results.
+  ![Testing Video](https://streamable.com/kphaum)
+
+  Below is the repo that the project was worked on.
+  1)https://github.com/NeXFP/OOP-Team-Profile-Generator
+  
+  Below is the deployed link page to the project.
+  2)https://nexfp.github.io/OOP-Team-Profile-Generator/
+
   ## Contributions
   Giovanny Cardoso
 
@@ -30,9 +40,6 @@
   MIT License <br />
   Link to License's Website: https://opensource.org/licenses/MIT
     
-  ## Badges
-  ![MIT](https://img.shields.io/badge/License-MIT-yellow)
-
   ## Questions
   For any questions, email me at: giovannycardoso50@gmail.com.
   Or find me at Github https://github.com/NeXFP.
