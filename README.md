@@ -24,12 +24,12 @@
 ![image](https://user-images.githubusercontent.com/88305762/140416812-cedfd5ef-afe4-41f6-975e-c7c3e141d3a9.png)
 
   ## Links
-  Below is a video showing how the project works and the results.
+  Below is a link to the video showing how the project works and the results.
   ![Testing Video](https://streamable.com/kphaum)
 
   Below is the repo that the project was worked on.
   1)https://github.com/NeXFP/OOP-Team-Profile-Generator
-  
+
   Below is the deployed link page to the project.
   2)https://nexfp.github.io/OOP-Team-Profile-Generator/
 
